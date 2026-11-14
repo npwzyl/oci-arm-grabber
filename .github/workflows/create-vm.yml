@@ -2,7 +2,10 @@ name: Try to Create OCI VM
 # Runs every 10 minutes
 on:
   schedule:
+    # GitHub 免费版的 cron 调度经常延迟/丢弃，多挂几条提高实际触发次数
     - cron: "*/10 * * * *"
+    - cron: "3,13,23,33,43,53 * * * *"
+    - cron: "7,17,27,37,47,57 * * * *"
   workflow_dispatch:
 
 # 抢到实例后需要调用 API 停用本 workflow，因此需要 actions 写权限
